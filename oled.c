@@ -143,6 +143,21 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 }
 
 void render_status_main(void) {
+    uint8_t layer = 0;
+    if (layer_state_is(1)) {
+        layer = 1;
+    } else if (layer_state_is(2)) {
+        layer = 2;
+    }
+
+    oled_write("L", layer == 1);
+    oled_write("-", false);
+    oled_write("B", layer == 0);
+    oled_write("-", false);
+    oled_write("R", layer == 2);
+
+    oled_write_ln("", false);
+
     if (layer_state_is(3)) {
         oled_write_ln("COLMC", false);
     } else {
@@ -151,7 +166,7 @@ void render_status_main(void) {
 
     oled_write_ln("", false);
 
-    oled_write("CPSLK", led_usb_state.caps_lock);
+    oled_write("ASHFT",  get_autoshift_state());
 
     oled_write_ln("", false);
 

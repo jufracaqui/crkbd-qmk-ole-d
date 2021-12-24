@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      KC_LCTRL, ES_PERC, ES_CIRC, ES_LBRC, ES_RBRC, ES_TILD,               ES_AMPR, XXXXXXX, ES_LABK, ES_RABK, ES_QUES, ES_IQUE,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                    XXXXXXX, KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT, KC_TRANSPARENT, XXXXXXX
+                    XXXXXXX, KC_TRANSPARENT, KC_TRANSPARENT,           KC_TRANSPARENT, KC_TRANSPARENT, KC_LSHIFT
                    //`---------------------------------------------' `---------------------------------------------'
   ),
 
