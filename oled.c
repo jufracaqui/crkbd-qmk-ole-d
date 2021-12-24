@@ -159,7 +159,7 @@ void render_status_main(void) {
     oled_write_ln("", false);
 
     if (layer_state_is(3)) {
-        oled_write_ln("COLMC", false);
+        oled_write_ln("COLMK", false);
     } else {
         oled_write_ln("QWRTY", false);
     }
@@ -191,6 +191,14 @@ bool oled_task_user(void) {
     led_usb_state = host_keyboard_led_state();
 
     if (is_keyboard_master()) {
+        if (current_wpm > 0) {
+            oled_on();
+            anim_sleep = timer_read32();
+        } else if (timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
+            oled_off();
+            return false;
+        }
+
         render_status_main();
     } else {
         render_status_secondary();

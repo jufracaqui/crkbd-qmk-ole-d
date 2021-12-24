@@ -1,5 +1,5 @@
 # crkbd-qmk-ole-d
-qmk layout in spanish with colemac and oled cool stuff
+qmk layout in spanish with colemak and oled cool stuff
 
 ```
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
