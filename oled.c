@@ -160,6 +160,8 @@ void render_status_main(void) {
 
     if (layer_state_is(3)) {
         oled_write_ln("COLMK", false);
+    } else if (layer_state_is(4)) {
+        oled_write_ln("LOL", false);
     } else {
         oled_write_ln("QWRTY", false);
     }
