@@ -12,6 +12,7 @@ enum {
     TD_9,
     TD_0,
     TD_ESC,
+    TD_CLMK_N
 };
 
 typedef struct {
@@ -396,6 +397,40 @@ void dance_esc_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[0].step = 0;
 }
 
+void on_dance_n_colmk(qk_tap_dance_state_t *state, void *user_data) {
+    if(state->count == 3) {
+        tap_code16(KC_N);
+        tap_code16(KC_N);
+        tap_code16(KC_N);
+    }
+    if(state->count > 3) {
+        tap_code16(KC_N);
+    }
+}
+
+void dance_n_colmk_finished(qk_tap_dance_state_t *state, void *user_data) {
+    dance_state[0].step = dance_step(state);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP: register_code16(KC_N); break;
+        case SINGLE_HOLD: register_code16(SFT_T(KC_N)); break;
+        case DOUBLE_TAP: register_code16(ES_NTIL); break;
+        case DOUBLE_HOLD: register_code16(SFT_T(ES_NTIL)); break;
+        case DOUBLE_SINGLE_TAP: tap_code16(KC_N); register_code16(KC_N);
+    }
+}
+
+void dance_n_colmk_reset(qk_tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP: unregister_code16(KC_N); break;
+        case SINGLE_HOLD: unregister_code16(SFT_T(KC_N)); break;
+        case DOUBLE_TAP: unregister_code16(ES_NTIL); break;
+        case DOUBLE_HOLD: unregister_code16(SFT_T(ES_NTIL)); break;
+        case DOUBLE_SINGLE_TAP: unregister_code16(KC_N); break;
+    }
+    dance_state[0].step = 0;
+}
+
 qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
     [TD_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
@@ -408,4 +443,5 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_8] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_8, dance_8_finished, dance_8_reset),
     [TD_9] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_9, dance_9_finished, dance_9_reset),
     [TD_ESC] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_esc, dance_esc_finished, dance_esc_reset),
+    [TD_CLMK_N] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_n_colmk, dance_n_colmk_finished, dance_n_colmk_reset),
 };
