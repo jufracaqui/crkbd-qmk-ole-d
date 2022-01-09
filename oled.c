@@ -143,22 +143,15 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 }
 
 void render_status_main(void) {
-    uint8_t layer = 0;
-    if (layer_state_is(1)) {
-        layer = 1;
-    } else if (layer_state_is(2)) {
-        layer = 2;
-    }
-
-    oled_write("L", layer == 1);
+    oled_write("L", layer_state_is(2));
     oled_write("-", false);
-    oled_write("B", layer == 0);
+    oled_write("B", !layer_state_is(2) && !layer_state_is(3));
     oled_write("-", false);
-    oled_write("R", layer == 2);
+    oled_write("R", layer_state_is(3));
 
     oled_write_ln("", false);
 
-    if (layer_state_is(3)) {
+    if (layer_state_is(1)) {
         oled_write_ln("COLMK", false);
     } else if (layer_state_is(4) || layer_state_is(5)) {
         oled_write_ln("LOL", false);

@@ -15,44 +15,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|[WINCOM]--+-[Z]-+--[X]-+--[C]-+--[V]-+--[B]-|                    |-[N]-+--[M]-+--[,]----+--[.]---+--[-]----+--[\]----|
      KC_LGUI,    KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                      KC_N,  KC_M,  KC_COMM,  KC_DOT,  ES_MINS,  ES_BSLS,
   //|--------------------------[L1]-+-[SP]----+-[BSP]----|  |-[TAB]-+--[ENTER]-+--[L2]------------------------------------|
-                             MO(1),  KC_SPACE,  KC_BSPACE,    KC_TAB,  KC_ENTER,  MO(2)
+                             MO(2),  KC_SPACE,  KC_BSPACE,    KC_TAB,  KC_ENTER,  MO(3)
                           //`----------------------------'  `--------------------------'
   ),
 
-  [1] = LAYOUT_split_3x6_3( // Symbols
-  //,[ª]-----+--[!]----+--["]----+--[·]----+--[$]----+--[%]----.        ,-[&]----+--[/]----+--[(]----+--[)]----+--[=]----+--[?]---.
-     ES_FORD,   ES_EXLM,  ES_DQUO,  ES_BULT,  ES_DLR,   ES_PERC,          ES_AMPR,  ES_SLSH,  ES_LPRN,  ES_RPRN,  ES_EQL,  ES_QUES,
-  //|[LSH]---+--[#]----+--[@]----+--[€]----+--[~]----+--[|]----|        |-[<]----+--[>]----+--[[]----+--[]]----+--[*]----+--[¿]---|
-     KC_LSFT,   ES_HASH,  ES_IQUE,  ES_EURO,  ES_TILD,  ES_PIPE,          ES_LABK,  ES_RABK,  ES_LBRC,  ES_RBRC,  ES_ASTR, ES_IQUE,
-  //|[LCTR]--+--[¡]----+--[^]----+---------+---------+--[`]----|        |-[¬]----+--[Ç]----+--[{]--+----[}]----+--[+]----+--------|
-     KC_LCTRL,  ES_IEXL,  ES_CIRC,  XXXXXXX,  XXXXXXX,  ES_GRV,           ES_NOT,   ES_CCED,  ES_LCBR,  ES_RCBR,  ES_PLUS, XXXXXXX,
-  //|---------------------------+--[SP]----------+--[BSP]---------|  |-[TAB]---------+--[ENTER]-------+---------------------------|
-                            XXXXXXX,  KC_TRANSPARENT,  KC_TRANSPARENT,    KC_TRANSPARENT,  KC_TRANSPARENT,  XXXXXXX
-                         //`--------------------------------------'  `---------------------------------------'
-  ),
-
-  [2] = LAYOUT_split_3x6_3( // Numbers, functions, arrows, mouse, conf
-  //,[CAPS]-+--[1,F1]--+--[2,F2]----+--[3,F3]----+--[4,F4]-----+--[5,F5]--.       ,-[6,F6]--+--[7,F7]--+--[8,F8]--+--[9,F9]--+--[10,F10]-+--[F11]--.
-     KC_CAPS,  TD(TD_1),  TD(TD_2),    TD(TD_3),    TD(TD_4),     TD(TD_5),         TD(TD_6),  TD(TD_7),  TD(TD_8),  TD(TD_9),  TD(TD_0),   KC_F11,
-  //|[QWRTY]+----------+------------+--[MUP]-----+-------------+----------|       |---------+----------+--[UP]------------------------------[F12]--|
-     TO(0),    XXXXXXX,   XXXXXXX,     KC_MS_UP,    XXXXXXX,      XXXXXXX,          XXXXXXX,   XXXXXXX,   KC_UP,     XXXXXXX,   XXXXXXX,    KC_F12,
-  //|[COLMK]+--[LOL]---+--[MLEFT]---+--[MDOWN]---+--[MRIGHT]---+--[HOME]--|       |-[END]---+--[LEFT]--+--[DOWN]-----[RIGHT]-----------------------|
-     TO(3),    TO(4),     KC_MS_LEFT,  KC_MS_DOWN,  KC_MS_RIGHT,  KC_HOME,          KC_END,    KC_LEFT,   KC_DOWN,   KC_RIGHT,  XXXXXXX,    XXXXXXX,
-  //|--------------------------------------[ASH]--+--[M1]------+--[M2]------|  |-[TAB]---------+--[ENTER]-------+----------------------------------|
-                                           KC_ASTG,  KC_MS_BTN1,  KC_MS_BTN2,    KC_TRANSPARENT,  KC_TRANSPARENT,  XXXXXXX
-                                          //`-------------------------------'  `---------------------------------------'
-  ),
-
-  [3] = LAYOUT_split_3x6_3( // Colemak
+  [1] = LAYOUT_split_3x6_3( // Colemak
   //,---------------+------+------+------+------+-------.                    ,-----+---------------+---------+--------+---------+----------------.
       KC_TRANSPARENT,  KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,                       KC_J,  KC_L,           KC_U,     KC_Y,   XXXXXXX,   KC_TRANSPARENT,
   //|---------------+------+------+------+------+-------|                    |-----+---------------+---------+--------+---------+----------------|
       KC_TRANSPARENT,  KC_A,  KC_R,  KC_S,  KC_T,  KC_D,                       KC_H,  TD(TD_CLMK_N),  KC_E,     KC_I,   KC_O,      KC_TRANSPARENT,
   //|---------------+------+------+------+------+-------|                    |-----+---------------+---------+--------+---------+----------------|
       KC_TRANSPARENT,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                       KC_K,  KC_M,           KC_COMM,  KC_DOT,  ES_MINS,  KC_TRANSPARENT,
-  //|---------------------------+----------------+----------------|  |---------------+----------------+------------------------------------------|
-                  KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,    KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT
-               //`------------------------------------------------'  `-------------------------------------------------'
+  //|---------------------------+----------------+--------------|  |---------------+----------------+--------------------------------------------|
+                                    MO(2),  KC_SPACE,  KC_BSPACE,   KC_TAB,  KC_ENTER,  MO(3)
+                                 //`----------------------------'  `-------------------------'
+  ),
+
+  [2] = LAYOUT_split_3x6_3( // Symbols
+  //,[ª]-----+--[!]----+--["]----+--[·]----+--[$]----+--[%]----.        ,-[&]----+--[/]----+--[(]----+--[)]----+--[=]----+--[?]---.
+     ES_FORD,   ES_EXLM,  ES_DQUO,  ES_BULT,  ES_DLR,   ES_PERC,          ES_AMPR,  ES_SLSH,  ES_LPRN,  ES_RPRN,  ES_EQL,  ES_QUES,
+  //|[LSH]---+--[#]----+--[@]----+--[€]----+--[~]----+--[|]----|        |-[<]----+--[>]----+--[[]----+--[]]----+--[*]----+--[¿]---|
+     KC_LSFT,   ES_HASH,  ES_AT,  ES_EURO,  ES_TILD,  ES_PIPE,          ES_LABK,  ES_RABK,  ES_LBRC,  ES_RBRC,  ES_ASTR, ES_IQUE,
+  //|[LCTR]--+--[¡]----+--[^]----+---------+---------+--[`]----|        |-[¬]----+--[Ç]----+--[{]--+----[}]----+--[+]----+--------|
+     KC_LCTRL,  ES_IEXL,  ES_CIRC,  XXXXXXX,  XXXXXXX,  ES_GRV,           ES_NOT,   ES_CCED,  ES_LCBR,  ES_RCBR,  ES_PLUS, XXXXXXX,
+  //|---------------------------+--[SP]----------+--[BSP]---------|  |-[TAB]---------+--[ENTER]-------+---------------------------|
+                                       XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
+                                    //`---------------------------'  `---------------------------'
+  ),
+
+  [3] = LAYOUT_split_3x6_3( // Numbers, functions, arrows, mouse, conf
+  //,[CAPS]-+--[1,F1]--+--[2,F2]----+--[3,F3]----+--[4,F4]-----+--[5,F5]--.       ,-[6,F6]--+--[7,F7]--+--[8,F8]--+--[9,F9]--+--[0,F10]-+--[F11]---.
+     KC_CAPS,  TD(TD_1),  TD(TD_2),    TD(TD_3),    TD(TD_4),     TD(TD_5),         TD(TD_6),  TD(TD_7),  TD(TD_8),  TD(TD_9),  TD(TD_0),   KC_F11,
+  //|[QWRTY]+----------+------------+--[MUP]-----+-------------+----------|       |---------+----------+--[UP]------------------------------[F12]--|
+     TO(0),    XXXXXXX,   XXXXXXX,     KC_MS_UP,    XXXXXXX,      XXXXXXX,          XXXXXXX,   XXXXXXX,   KC_UP,     XXXXXXX,   XXXXXXX,    KC_F12,
+  //|[COLMK]+--[LOL]---+--[MLEFT]---+--[MDOWN]---+--[MRIGHT]---+--[HOME]--|       |-[END]---+--[LEFT]--+--[DOWN]-----[RIGHT]-----------------------|
+     TO(1),    TO(4),     KC_MS_LEFT,  KC_MS_DOWN,  KC_MS_RIGHT,  KC_HOME,          KC_END,    KC_LEFT,   KC_DOWN,   KC_RIGHT,  XXXXXXX,    XXXXXXX,
+  //|--------------------------------------[ASH]--+--[M1]------+--[M2]------|  |-[TAB]---------+--[ENTER]-------+----------------------------------|
+                                           KC_ASTG,  KC_MS_BTN1,  KC_MS_BTN2,   XXXXXXX,  XXXXXXX,  XXXXXXX
+                                          //`-------------------------------'  `---------------------------'
   ),
 
   [4] = LAYOUT_split_3x6_3( // LOL

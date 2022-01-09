@@ -126,8 +126,8 @@
 #define ES_PIPE ALGR(ES_1)    // |
 #define ES_AT   ALGR(ES_2)    // @
 #define ES_HASH ALGR(ES_3)    // #
-#define ES_TILD ALGR(ES_4)    // ~
-#define ES_EURO ALGR(ES_5)    // €
+#define ES_TILD ALGR(ES_NTIL) // ~
+#define ES_EURO ALGR(KC_E)    // €
 #define ES_NOT  ALGR(ES_6)    // ¬
 // Row 2
 #define ES_LBRC ALGR(ES_GRV)  // [
