@@ -84,11 +84,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 |----------|:-------------:|
 | ![Left](/docs/left.jpg) |  ![Right](/docs/right.jpg) |
 
-The Spanish layout keycodes were borrowed from the config generated with [Oryx](https://configure.zsa.io/)
+The Spanish layout keycodes have been borrowed from the config generated with [Oryx](https://configure.zsa.io/) and tweaked to fix some issues.
 * https://www.zsa.io
 * [Github](https://github.com/zsa/qmk_firmware/).
 
-Luna, the keyboard pet is borrowed from [HellTM](https://github.com/HellSingCoder)
+Luna, the keyboard pet, has been borrowed from [HellTM](https://github.com/HellSingCoder)
 * [How to adopt Luna](https://www.youtube.com/watch?v=HgIQRazCAjo)
 * [Luna code](https://github.com/HellSingCoder/qmk_firmware/tree/master/keyboards/sofle/keymaps/helltm)
 
@@ -100,6 +100,7 @@ You should be able to understand the code in order to use it.
 
 TODO:
 * Reduce size (The firmware size is approaching the maximum - 28244/28672 (98%, 428 bytes free))
-* Add led effects
+* Add LED effects
 * Enable macro recording and playback
 * Fix WPM counter and main oled Off depending on WPM
+* Rethink thumbpads layouts for each layer
